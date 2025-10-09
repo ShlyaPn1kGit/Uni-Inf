@@ -72,7 +72,7 @@ int main() {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 
                     // Преобразование экранных координат в "математические"
-                    float mathX = (mousePos.x - 400) / 30.0f; // Масштаб 30 по X
+                    float mathX = (mousePos.x - 400) / 10.0f; // Масштаб 3\10 по X
                     float mathY = -(mousePos.y - 300) / 10.0f; // Масштаб 10 по Y
 
                     // Установка новой пользовательской точки
@@ -99,7 +99,7 @@ int main() {
                         messageText.setString("4");
                     }
 
-                    if ((mathX == 3) or (abs(mathX) == mathY)) {
+                    if ((mathY == 3) or (abs(mathX) == mathY)) {
                         messageText.setString("On line");
                     }
 
@@ -122,7 +122,7 @@ int main() {
 
         drawGraph(window, [](float x) { return 3; }, -10, 10, 30, 10, sf::Color::Blue);
 
-        drawGraph(window, [](float x) { return abs(x); }, -10, 10, 30, 10, sf::Color::Red);
+        drawGraph(window, [](float x) { return abs(x); }, -20, 20, 10, 10, sf::Color::Red);
 
         // Отрисовка пользовательской точки, если она существует
         if (userPointExists) {
